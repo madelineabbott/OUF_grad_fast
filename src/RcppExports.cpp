@@ -65,11 +65,71 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// sb_grad_lambda_cpp
+arma::Mat<double> sb_grad_lambda_cpp(double k, double ni, arma::vec Yi, arma::mat Lambda, arma::mat Sigma_u, arma::mat Theta, arma::mat Psi, arma::mat nonzero, arma::mat grad_id);
+RcppExport SEXP _mrabbott_sb_grad_lambda_cpp(SEXP kSEXP, SEXP niSEXP, SEXP YiSEXP, SEXP LambdaSEXP, SEXP Sigma_uSEXP, SEXP ThetaSEXP, SEXP PsiSEXP, SEXP nonzeroSEXP, SEXP grad_idSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type k(kSEXP);
+    Rcpp::traits::input_parameter< double >::type ni(niSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type Yi(YiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Lambda(LambdaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Sigma_u(Sigma_uSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Theta(ThetaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Psi(PsiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type nonzero(nonzeroSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type grad_id(grad_idSEXP);
+    rcpp_result_gen = Rcpp::wrap(sb_grad_lambda_cpp(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sb_grad_sigma_u_cpp
+arma::Mat<double> sb_grad_sigma_u_cpp(double k, double ni, arma::vec Yi, arma::mat Lambda, arma::mat Sigma_u, arma::mat Theta, arma::mat Psi, arma::mat nonzero, arma::mat grad_id);
+RcppExport SEXP _mrabbott_sb_grad_sigma_u_cpp(SEXP kSEXP, SEXP niSEXP, SEXP YiSEXP, SEXP LambdaSEXP, SEXP Sigma_uSEXP, SEXP ThetaSEXP, SEXP PsiSEXP, SEXP nonzeroSEXP, SEXP grad_idSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type k(kSEXP);
+    Rcpp::traits::input_parameter< double >::type ni(niSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type Yi(YiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Lambda(LambdaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Sigma_u(Sigma_uSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Theta(ThetaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Psi(PsiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type nonzero(nonzeroSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type grad_id(grad_idSEXP);
+    rcpp_result_gen = Rcpp::wrap(sb_grad_sigma_u_cpp(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sb_grad_sigma_e_cpp
+arma::Mat<double> sb_grad_sigma_e_cpp(double k, double ni, arma::vec Yi, arma::mat Lambda, arma::mat Sigma_u, arma::mat Theta, arma::mat Psi, arma::mat nonzero, arma::mat grad_id);
+RcppExport SEXP _mrabbott_sb_grad_sigma_e_cpp(SEXP kSEXP, SEXP niSEXP, SEXP YiSEXP, SEXP LambdaSEXP, SEXP Sigma_uSEXP, SEXP ThetaSEXP, SEXP PsiSEXP, SEXP nonzeroSEXP, SEXP grad_idSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type k(kSEXP);
+    Rcpp::traits::input_parameter< double >::type ni(niSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type Yi(YiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Lambda(LambdaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Sigma_u(Sigma_uSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Theta(ThetaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Psi(PsiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type nonzero(nonzeroSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type grad_id(grad_idSEXP);
+    rcpp_result_gen = Rcpp::wrap(sb_grad_sigma_e_cpp(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_mrabbott_grad_lambda_cpp", (DL_FUNC) &_mrabbott_grad_lambda_cpp, 8},
     {"_mrabbott_grad_sigma_u_cpp", (DL_FUNC) &_mrabbott_grad_sigma_u_cpp, 8},
     {"_mrabbott_grad_sigma_e_cpp", (DL_FUNC) &_mrabbott_grad_sigma_e_cpp, 8},
+    {"_mrabbott_sb_grad_lambda_cpp", (DL_FUNC) &_mrabbott_sb_grad_lambda_cpp, 9},
+    {"_mrabbott_sb_grad_sigma_u_cpp", (DL_FUNC) &_mrabbott_sb_grad_sigma_u_cpp, 9},
+    {"_mrabbott_sb_grad_sigma_e_cpp", (DL_FUNC) &_mrabbott_sb_grad_sigma_e_cpp, 9},
     {NULL, NULL, 0}
 };
 
