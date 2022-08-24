@@ -331,6 +331,42 @@ arma::Mat<double> fa_grads(double k, double ni, arma::vec Yi, arma::mat Lambda,
 }
 
 // [[Rcpp::export]]
+arma::Mat<double> fa_grads_precomp(double k, double ni, arma::vec Yi, arma::mat Lambda,
+                                   arma::mat Sigma_u, arma::mat Theta, arma::mat Psi,
+                                   arma::mat nonzero){
+  
+  arma::mat lambda_grad;
+  arma::mat sigma_u_grad;
+  arma::mat sigma_e_grad;
+  
+  arma::mat diag_ni = arma::eye(ni, ni);
+  arma::mat Lambda_kron = arma::kron(diag_ni, Lambda);
+  arma::mat Lambda_Psi = Lambda_kron * Psi;
+  
+  // start of precomputation (previously done in R)
+  arma::mat Sigma_star_inv;
+  Sigma_star_inv = calc_Sigma_star_inv(ni, Lambda, Sigma_u, Theta, Psi);
+  
+  arma::mat I_SYYt;
+  arma::mat diag_kni = arma::eye(k*ni, k*ni);
+  I_SYYt = diag_kni - Sigma_star_inv * Yi * arma::trans(Yi);
+  
+  arma::mat Sigma_term;
+  Sigma_term = I_SYYt * Sigma_star_inv;
+  // end of precomputation
+  
+  lambda_grad = grad_lambda_cpp(k, ni, Yi, Lambda, Lambda_Psi,
+                                nonzero, Sigma_term);
+  
+  sigma_u_grad = grad_sigma_u_cpp(k, ni, Yi, Sigma_u, Sigma_term);
+  
+  sigma_e_grad = grad_sigma_e_cpp(k, ni, Yi, Theta, Sigma_term);
+  
+  return(arma::join_cols(lambda_grad, sigma_u_grad, sigma_e_grad));
+  
+}
+
+// [[Rcpp::export]]
 arma::Mat<double> sb_grad_lambda_cpp(double k, double ni, arma::vec Yi, arma::mat Lambda,
                                      arma::mat Sigma_u, arma::mat Theta,
                                      arma::mat Psi, arma::mat nonzero, arma::mat grad_id) {

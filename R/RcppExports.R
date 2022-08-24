@@ -41,6 +41,10 @@ fa_grads <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, non
     .Call(`_mrabbott_fa_grads`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, nonzero, I_SYYt, Sigma_term)
 }
 
+fa_grads_precomp <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero) {
+    .Call(`_mrabbott_fa_grads_precomp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero)
+}
+
 sb_grad_lambda_cpp <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id) {
     .Call(`_mrabbott_sb_grad_lambda_cpp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id)
 }

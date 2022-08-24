@@ -175,6 +175,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// fa_grads_precomp
+arma::Mat<double> fa_grads_precomp(double k, double ni, arma::vec Yi, arma::mat Lambda, arma::mat Sigma_u, arma::mat Theta, arma::mat Psi, arma::mat nonzero);
+RcppExport SEXP _mrabbott_fa_grads_precomp(SEXP kSEXP, SEXP niSEXP, SEXP YiSEXP, SEXP LambdaSEXP, SEXP Sigma_uSEXP, SEXP ThetaSEXP, SEXP PsiSEXP, SEXP nonzeroSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type k(kSEXP);
+    Rcpp::traits::input_parameter< double >::type ni(niSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type Yi(YiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Lambda(LambdaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Sigma_u(Sigma_uSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Theta(ThetaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Psi(PsiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type nonzero(nonzeroSEXP);
+    rcpp_result_gen = Rcpp::wrap(fa_grads_precomp(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero));
+    return rcpp_result_gen;
+END_RCPP
+}
 // sb_grad_lambda_cpp
 arma::Mat<double> sb_grad_lambda_cpp(double k, double ni, arma::vec Yi, arma::mat Lambda, arma::mat Sigma_u, arma::mat Theta, arma::mat Psi, arma::mat nonzero, arma::mat grad_id);
 RcppExport SEXP _mrabbott_sb_grad_lambda_cpp(SEXP kSEXP, SEXP niSEXP, SEXP YiSEXP, SEXP LambdaSEXP, SEXP Sigma_uSEXP, SEXP ThetaSEXP, SEXP PsiSEXP, SEXP nonzeroSEXP, SEXP grad_idSEXP) {
@@ -244,6 +262,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_mrabbott_grad_sigma_e_cpp", (DL_FUNC) &_mrabbott_grad_sigma_e_cpp, 5},
     {"_mrabbott_fa_grads_slow", (DL_FUNC) &_mrabbott_fa_grads_slow, 9},
     {"_mrabbott_fa_grads", (DL_FUNC) &_mrabbott_fa_grads, 11},
+    {"_mrabbott_fa_grads_precomp", (DL_FUNC) &_mrabbott_fa_grads_precomp, 8},
     {"_mrabbott_sb_grad_lambda_cpp", (DL_FUNC) &_mrabbott_sb_grad_lambda_cpp, 9},
     {"_mrabbott_sb_grad_sigma_u_cpp", (DL_FUNC) &_mrabbott_sb_grad_sigma_u_cpp, 9},
     {"_mrabbott_sb_grad_sigma_e_cpp", (DL_FUNC) &_mrabbott_sb_grad_sigma_e_cpp, 9},
