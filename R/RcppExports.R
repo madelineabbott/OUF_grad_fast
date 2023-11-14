@@ -2,58 +2,58 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 calc_Sigma_star_inv <- function(ni, Lambda, Sigma_u, Theta, Psi) {
-    .Call(`_mrabbott_calc_Sigma_star_inv`, ni, Lambda, Sigma_u, Theta, Psi)
+    .Call(`_OUFgrad_calc_Sigma_star_inv`, ni, Lambda, Sigma_u, Theta, Psi)
 }
 
 calc_Sigma_star <- function(ni, Lambda, Sigma_u, Theta, Psi) {
-    .Call(`_mrabbott_calc_Sigma_star`, ni, Lambda, Sigma_u, Theta, Psi)
+    .Call(`_OUFgrad_calc_Sigma_star`, ni, Lambda, Sigma_u, Theta, Psi)
 }
 
 grad_lambda_cpp_slow <- function(k, ni, Yi, Lambda, Psi, Sigma_star_inv, nonzero) {
-    .Call(`_mrabbott_grad_lambda_cpp_slow`, k, ni, Yi, Lambda, Psi, Sigma_star_inv, nonzero)
+    .Call(`_OUFgrad_grad_lambda_cpp_slow`, k, ni, Yi, Lambda, Psi, Sigma_star_inv, nonzero)
 }
 
 grad_sigma_u_cpp_slow <- function(k, ni, Yi, Sigma_u, Sigma_star_inv) {
-    .Call(`_mrabbott_grad_sigma_u_cpp_slow`, k, ni, Yi, Sigma_u, Sigma_star_inv)
+    .Call(`_OUFgrad_grad_sigma_u_cpp_slow`, k, ni, Yi, Sigma_u, Sigma_star_inv)
 }
 
 grad_sigma_e_cpp_slow <- function(k, ni, Yi, Theta, Sigma_star_inv) {
-    .Call(`_mrabbott_grad_sigma_e_cpp_slow`, k, ni, Yi, Theta, Sigma_star_inv)
+    .Call(`_OUFgrad_grad_sigma_e_cpp_slow`, k, ni, Yi, Theta, Sigma_star_inv)
 }
 
 grad_lambda_cpp <- function(k, ni, Yi, Lambda, Lambda_Psi, nonzero, Sigma_term) {
-    .Call(`_mrabbott_grad_lambda_cpp`, k, ni, Yi, Lambda, Lambda_Psi, nonzero, Sigma_term)
+    .Call(`_OUFgrad_grad_lambda_cpp`, k, ni, Yi, Lambda, Lambda_Psi, nonzero, Sigma_term)
 }
 
 grad_sigma_u_cpp <- function(k, ni, Yi, Sigma_u, Sigma_term) {
-    .Call(`_mrabbott_grad_sigma_u_cpp`, k, ni, Yi, Sigma_u, Sigma_term)
+    .Call(`_OUFgrad_grad_sigma_u_cpp`, k, ni, Yi, Sigma_u, Sigma_term)
 }
 
 grad_sigma_e_cpp <- function(k, ni, Yi, Theta, Sigma_term) {
-    .Call(`_mrabbott_grad_sigma_e_cpp`, k, ni, Yi, Theta, Sigma_term)
+    .Call(`_OUFgrad_grad_sigma_e_cpp`, k, ni, Yi, Theta, Sigma_term)
 }
 
 fa_grads_slow <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, nonzero) {
-    .Call(`_mrabbott_fa_grads_slow`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, nonzero)
+    .Call(`_OUFgrad_fa_grads_slow`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, nonzero)
 }
 
 fa_grads <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, nonzero, I_SYYt, Sigma_term) {
-    .Call(`_mrabbott_fa_grads`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, nonzero, I_SYYt, Sigma_term)
+    .Call(`_OUFgrad_fa_grads`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, Sigma_star_inv, nonzero, I_SYYt, Sigma_term)
 }
 
 fa_grads_precomp <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero) {
-    .Call(`_mrabbott_fa_grads_precomp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero)
+    .Call(`_OUFgrad_fa_grads_precomp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero)
 }
 
 sb_grad_lambda_cpp <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id) {
-    .Call(`_mrabbott_sb_grad_lambda_cpp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id)
+    .Call(`_OUFgrad_sb_grad_lambda_cpp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id)
 }
 
 sb_grad_sigma_u_cpp <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id) {
-    .Call(`_mrabbott_sb_grad_sigma_u_cpp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id)
+    .Call(`_OUFgrad_sb_grad_sigma_u_cpp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id)
 }
 
 sb_grad_sigma_e_cpp <- function(k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id) {
-    .Call(`_mrabbott_sb_grad_sigma_e_cpp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id)
+    .Call(`_OUFgrad_sb_grad_sigma_e_cpp`, k, ni, Yi, Lambda, Sigma_u, Theta, Psi, nonzero, grad_id)
 }
 
